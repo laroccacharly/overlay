@@ -1,0 +1,31 @@
+{
+  "name": "overlay",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Waveform overlay for Wayland, drawn in Rust and driven from Effect",
+  "exports": {
+    ".": "./ts/index.ts"
+  },
+  "napi": {
+    "binaryName": "overlay"
+  },
+  "scripts": {
+    "build": "napi build --platform --release --esm --no-const-enum --output-dir native --js index.js --dts index.d.ts",
+    "test": "cargo test && bun run build && bun test",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint . && ts-lint-effect"
+  },
+  "peerDependencies": {
+    "effect": "^4.0.0"
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "^3.10.9",
+    "@types/bun": "^1.4.4",
+    "effect": "4.1.1",
+    "oxlint": "^1.90.0",
+    "oxlint-tsgolint": "^7.0.2005",
+    "ts-lint": "github:laroccacharly/ts-lint#v0.6.0",
+    "typescript": "^7"
+  }
+}
