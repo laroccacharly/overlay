@@ -10,9 +10,8 @@ an Effect service.
 1. Bump the version in both `Cargo.toml` and `package.json`: patch for fixes,
    minor for new features.
 2. `bun run test`: runs the Rust tests, builds the native module, then runs
-   the Bun tests. The
-   end-to-end test opens a nested Hyprland window for about a second and
-   saves what it saw to `screenshots/`.
+   the Bun tests. The end-to-end test opens a nested Hyprland window for
+   about a second and saves what it saw to `screenshots/`.
 3. `bun run lint` and `cargo clippy --all-targets` must print no warnings.
 
 A visual change breaks the snapshot tests on purpose: look at the new frames,
