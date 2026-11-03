@@ -17,6 +17,15 @@ an Effect service.
 A visual change breaks the snapshot tests on purpose: look at the new frames,
 then rewrite them with `UPDATE_SNAPSHOTS=1 bun test test/render.test.ts`.
 
+## Publishing
+
+`native/` is committed: consumers such as stt install the package straight
+from a git tag (`github:laroccacharly/overlay#vX.Y.Z`) and load the prebuilt
+`native/overlay.linux-x64-gnu.node` without Rust. It is not built on GitHub,
+so before every commit and tag, compile it here with `bun run build` and
+commit the rebuilt `native/` with the source change. Then tag the version
+(`vX.Y.Z`) and push the tag.
+
 ## Style
 
 Rust follows the Google Rust style guide in `docs/rust-style-guide.md`,
